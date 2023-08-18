@@ -19,6 +19,12 @@ ENV PIP_NO_CACHE_DIR=yes \
     PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1
 
+# Update package list and install dependencies
+RUN apt-get update && apt-get install -y \
+    gcc \
+    python3-dev
+
+
 # Install the required python packages globally
 ENV PATH="$PATH:/root/.local/bin"
 COPY requirements.txt .
